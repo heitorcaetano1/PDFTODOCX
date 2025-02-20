@@ -5,7 +5,7 @@ import mammoth
 import pypandoc
 import pdfkit
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 app.secret_key = "sua_chave_secreta"
 
 # Pastas de trabalho
