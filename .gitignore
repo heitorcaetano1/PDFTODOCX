@@ -1,0 +1,30 @@
+# Ambientes virtuais e dependências
+venv/
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.db
+
+# Configurações locais
+.DS_Store
+*.log
+*.sqlite3
+
+# Arquivos de IDEs e editores
+.vscode/
+.idea/
+*.swp
+
+# Dependências do Python
+Pipfile
+Pipfile.lock
+
+# Arquivos gerados pelo sistema
+thumbs.db
+*.bak
+
+# Cache do Flask
+instance/
+uploads/
+static/uploads/

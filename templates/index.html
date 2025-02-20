@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <!-- SEO e Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerenciador de PDFs - Converta, Edite e Baixe</title>
+  <meta name="description" content="Gerenciador de PDFs online: converta, edite e baixe seus documentos com facilidade. Experiência rica e compatível com Google AdSense.">
+  <meta name="keywords" content="PDF, converter PDF, editar PDF, gerenciador de PDFs, online, Google AdSense">
+  <link rel="canonical" href="https://www.seusite.com/">
+  <!-- Open Graph para compartilhamento -->
+  <meta property="og:title" content="Gerenciador de PDFs - Converta, Edite e Baixe">
+  <meta property="og:description" content="Gerenciador de PDFs online: converta, edite e baixe seus documentos com facilidade.">
+  <meta property="og:image" content="https://www.seusite.com/static/img/preview.jpg">
+  <meta property="og:url" content="https://www.seusite.com/">
+  <meta property="og:type" content="website">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+  <style>
+    /* CSS Inline para garantir full-screen e espaços para Ads */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .full-screen {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .content-wrapper {
+      flex: 1;
+    }
+    .adsense-placeholder {
+      background-color: #e9ecef;
+      border: 1px dashed #6c757d;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Gerenciador de PDFs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <!-- Adicione outros links se necessário -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="full-screen">
+    <div class="content-wrapper">
+      <div class="container mt-5">
+        <h1 class="text-center mb-4">Gerenciador de PDFs</h1>
+
+        <!-- Espaço para anúncio (AdSense) -->
+        <div class="adsense-placeholder mb-4">
+          <!-- Código do Google AdSense pode ser inserido aqui -->
+          <p>Espaço para Anúncio</p>
+        </div>
+
+        <form action="/upload" method="post" enctype="multipart/form-data" class="border p-4 rounded">
+          <div class="mb-3">
+            <input type="file" name="file" class="form-control" required>
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="submit" name="action" value="edit" class="btn btn-primary">Editar Documento</button>
+            <button type="submit" name="action" value="convert" class="btn btn-secondary">Converter e Baixar</button>
+          </div>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger mt-3">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+      <div class="container">
+        <!-- Espaço para anúncio no footer -->
+        <div class="adsense-placeholder mb-2">
+          <p>Espaço para Anúncio</p>
+        </div>
+        <p>&copy; 2025 Gerenciador de PDFs. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

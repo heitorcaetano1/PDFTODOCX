@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editar Documento - Gerenciador de PDFs</title>
+
+  <!-- Estilos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- CKEditor -->
+  <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Gerenciador de PDFs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo Principal -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Editar Documento</h2>
+
+    <!-- Espaço para anúncios (Google AdSense) -->
+    <div class="adsense-placeholder mb-4 text-center">
+      <p>Espaço para Anúncio</p>
+    </div>
+
+    <form id="editorForm" action="/save" method="post">
+      <input type="hidden" name="docx_filename" value="{{ filename }}">
+      <textarea id="editor" name="content">{{ content|safe }}</textarea>
+      <button type="submit" class="btn btn-success w-100 mt-3">Salvar e Converter para PDF</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <div class="container">
+      <div class="adsense-placeholder mb-2">
+        <p>Espaço para Anúncio</p>
+      </div>
+      <p>&copy; HC DevWork's Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script Interno do CKEditor -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      ClassicEditor
+        .create(document.querySelector("#editor"), {
+          toolbar: [
+            'heading', '|',
+            'bold', 'italic', 'underline', 'strikethrough', '|',
+            'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor', '|',
+            'alignment', 'outdent', 'indent', '|',
+            'bulletedList', 'numberedList', 'blockQuote', '|',
+            'insertTable', 'uploadImage', '|',
+            'undo', 'redo'
+          ],
+          fontFamily: {
+            options: [
+              'default',
+              'Arial, Helvetica, sans-serif',
+              'Courier New, Courier, monospace',
+              'Georgia, serif',
+              'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              'Tahoma, Geneva, sans-serif',
+              'Times New Roman, Times, serif',
+              'Trebuchet MS, Helvetica, sans-serif'
+            ],
+            supportAllValues: true
+          },
+          fontSize: {
+            options: [ '10px', '12px', '14px', '16px', '18px', '24px', '32px', '48px' ],
+            supportAllValues: true
+          },
+          alignment: {
+            options: [ 'left', 'center', 'right', 'justify' ]
+          }
+        })
+        .catch(error => console.error(error));
+    });
+  </script>
+</body>
+</html>

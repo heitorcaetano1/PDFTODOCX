@@ -1,0 +1,35 @@
+body {
+  background-color: #f8f9fa;
+}
+.container {
+  max-width: 800px;
+}
+
+.docx-content {
+  font-family: "Calibri", sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+}
+
+.pdf-content {
+  font-family: "Calibri", sans-serif;
+  margin: 40px;
+  line-height: 1.6;
+}
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+}
+
+/* Estilo para placeholders de AdSense */
+.adsense-placeholder {
+  background-color: #e9ecef;
+  border: 1px dashed #6c757d;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
