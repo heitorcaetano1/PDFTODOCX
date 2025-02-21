@@ -183,9 +183,13 @@ def tutorial():
     return render_template('tutorial.html')
 
 
-@app.route('termos')
+@app.route('/termos')
 def termos():
     return render_template('termos.html')
+
+@app.route('/tutorial')
+def tutorial():
+    return render_template('/tutorial.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
