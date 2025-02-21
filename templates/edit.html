@@ -38,11 +38,6 @@
   <div class="container mt-5">
     <h2 class="text-center mb-4">Editar Documento</h2>
 
-    <!-- Espaço para anúncios (Google AdSense) -->
-    <div class="adsense-placeholder mb-4 text-center">
-      <p>Espaço para Anúncio</p>
-    </div>
-
     <form id="editorForm" action="/save" method="post">
       <input type="hidden" name="docx_filename" value="{{ filename }}">
       <textarea id="editor" name="content">{{ content|safe }}</textarea>
@@ -53,9 +48,6 @@
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3 mt-5">
     <div class="container">
-      <div class="adsense-placeholder mb-2">
-        <p>Espaço para Anúncio</p>
-      </div>
       <p>&copy; HC.DevWork's Todos os direitos reservados.</p>
     </div>
   </footer>
