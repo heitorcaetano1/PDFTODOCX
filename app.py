@@ -178,5 +178,14 @@ def save():
         return redirect(url_for('edit', docx_filename=docx_filename))
     return send_file(output_pdf, as_attachment=True)
 
+@app.route('/tutorial')
+def tutorial():
+    return render_template('tutorial.html')
+
+
+@app.route('termos')
+def termos():
+    return render_template('termos.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
