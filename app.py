@@ -213,5 +213,9 @@ def save():
 
     return send_file(output_pdf, as_attachment=True, mimetype='application/pdf')
 
+@app.route('/tutorial')
+def tutorial():
+    return render_template('/tutorial.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
