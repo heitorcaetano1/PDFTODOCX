@@ -7,7 +7,6 @@ from werkzeug.utils import secure_filename
 import pdfkit
 from PIL import Image
 import io
-import re
 from bs4 import BeautifulSoup
 import base64
 
